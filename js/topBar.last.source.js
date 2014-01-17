@@ -158,8 +158,8 @@
 				document.getElementsByTagName("head")[0].appendChild(style);
 			}
 			catch(e){}
-			style=null;
-		}('.NIE-topBar-logo,.NIE-topBar-arrIcon i,#NIE-topBar-menu span,.NIE-topBar-hot,.NIE-topBar-1st,.NIE-topBar-new,.NIE-topBar-btn{background:url(http://res.nie.netease.com/comm/nie.topBar/images/sprite.png) no-repeat;}\
+            style=null;
+        }('.NIE-topBar-logo,.NIE-topBar-arrIcon i,#NIE-topBar-menu span,.NIE-topBar-hot,.NIE-topBar-1st,.NIE-topBar-new,.NIE-topBar-btn{background:url(http://res.nie.netease.com/comm/nie.topBar/images/sprite-w.png) no-repeat;}\
 			.NIE-topBar-arrIcon{position:relative;top:4px;width:16px;height:16px;display:inline-block;background-color:#fff;overflow:hidden;}\
 			.NIE-topBar-arrIcon i{width:9px;height:4px;float:left;margin:6px 0 0 4px;background-position:-103px -101px;display:inline-block;-webkit-transition:all .2s ease 0s;transition:all .2s ease 0s;}\
 			#NIE-topBar{position:relative;z-index:9999;min-width:1000px;height:40px;background:#333;line-height:24px;}\
@@ -179,7 +179,7 @@
 			#NIE-topBar-news ul{position:relative;padding:5px 0;}\
 			#NIE-topBar-news ul a{width:265px;height:24px;display:block;overflow:hidden;}\
 			#NIE-topBar-news ul i{width:55px;padding-right:10px;float:left;font-style:normal;display:inline;text-align:right;}\
-			.NIE-topBar-mid{position:absolute;z-index:2;left:425px;width:385px;text-align:right;}\
+			.NIE-topBar-mid{position:absolute;z-index:2;right:135px;width:385px;text-align:right;}\
 			#NIE-topBar .NIE-topBar-mid a{line-height:40px;padding:0 10px;color:#fff;display:inline-block;}\
 			#NIE-topBar .NIE-topBar-mid a:hover{color:#ca0b0b;}\
 			#NIE-topBar-menu{position:absolute;z-index:1;top:0;right:0;color:#999;width:680px;height:40px;overflow:hidden;-webkit-transition:height .3s ease 0s;-o-transition:height .3s ease 0s;-moz-transition:height .3s ease 0s;transition:height .3s ease 0s;}\
@@ -196,6 +196,34 @@
 			#NIE-topBar-menu.NIE-topBar-menu-hover{height:330px;opacity:.9;-webkit-transition:height .4s ease 0s;-o-transition:height .4s ease 0s;-moz-transition:height .4s ease 0s;transition:height .4s ease 0s;}\
 			a.NIE-topBar-btn{width:103px !important;height:25px;margin:5px 0;display:inline-block;padding-left:0 !important;background-position:100% -338px;text-indent:15px;color:#fff !important;border:1px #090708 solid;border-left:0;border-top:0;}\
 			a.NIE-topBar-btn:hover{color:#FDD2D2 !important;}\
+		'+/*医生说要自适应宽屏啊！,改成白色之后重写样式*/'.NIE-topBar-ad{height:40px;left:50%;}\
+			.w1200{min-width:1200px!important;}\
+			.w1200 .NIE-topBar-main{width:1185px;}\
+			#NIE-topBar-news{width:auto!important;z-index:9;}\
+			#NIE-topBar .NIE-topBar-menu-hover{z-index:8;}\
+			.NIE-topBar-ad-big{position: absolute;top: 0;left:0;z-index: 10;height:0;overflow:hidden;text-align:center;}\
+			#NIE-topBar-menu{z-index:7;}\
+			.NIE-topBar-mid{z-index:12;width: 250px;right:144px;width:536px;}\
+			.NIE-topBar-logo{position:relative;z-index:13!important;}\
+			#NIE-topBar{height:55px;}\
+			.NIE-topBar-logo{margin-top:14px;}\
+			#NIE-topBar .NIE-topBar-mid a{line-height:55px;}\
+			#NIE-topBar-menu table{top:54px;background:#fbfbfb;border-top: 1px solid #ececec;}\
+			#NIE-topBar-menu span{background:none;color:#bc2e2e;}\
+			#NIE-topBar-news{height:54px;}\
+			#NIE-topBar-menu table td{border-color:#ececec;}\
+			#NIE-topBar-menu b{color:#bc2e2e;}\
+			#NIE-topBar a{color:#626262}\
+			#NIE-topBar-menu b i{background-color:#fbfbfb;color:#bc2e2e;}\
+			#NIE-topBar a:hover{color:#bc2e2e;}\
+			#NIE-topBar-menu.NIE-topBar-menu-hover{opacity:.95;}\
+			a.NIE-topBar-btn{border:none;box-shadow:1px 1px 1px #ccc}\
+			#NIE-topBar-menu table *{font-size:12px;}\
+			#NIE-topBar-menu.NIE-topBar-menu-hover span{border-bottom:3px solid #bc2e2e;background-color: #F3F3F3;background-image: -webkit-linear-gradient(top, #F3F3F3 0px, #FEFEFE 52px);background-image:linear-gradient(top, #F3F3F3 0px, #FEFEFE 52px);}\
+			#NIE-topBar-menu span{height:26px;width:123px;padding-top:14px;transition:background ease-in-out .33s;z-index:20;}\
+			#NIE-topBar .NIE-topBar-mid a{line-height:52px;transition:background ease-in-out .33s;*line-height:55px;}\
+			#NIE-topBar .NIE-topBar-mid a:hover{color:#bc2e2e!important;border-bottom:3px solid #bc2e2e;background-color: #F3F3F3;background-image: -webkit-linear-gradient(top, #F3F3F3 0px, #FEFEFE 52px);background-image:linear-gradient(top, #F3F3F3 0px, #FEFEFE 52px);*border-bottom:none;}\
+			#NIE-topBar-menu.NIE-topBar-menu-hover{height:350px;}\
 		');
 		new function(){			
 			$("NIE-topBar").innerHTML='<div class="NIE-topBar-main">\
@@ -209,10 +237,11 @@
 						</div>\
 						<div id="NIE-topBar-menu">\
 							<span>网易游戏全目录 <em class="NIE-topBar-arrIcon"><i></i></em></span>\
-						  <table><tr><td style="width:225px;padding-left:30px;"><b>大型角色扮演游戏<i>16</i></b><a href="http://xyq.163.com" target="_blank"><em class="NIE-topBar-1st">梦幻西游2</em></a><a href="http://wh.163.com" target="_blank"><em class="NIE-topBar-hot">武魂</em></a><a href="http://xy2.163.com" target="_blank">新大话西游2</a><a href="http://tx3.163.com" target="_blank"><em class="NIE-topBar-hot">天下3</em></a><a href="http://xy3.163.com" target="_blank">大话西游3</a><a href="http://qn2.163.com" target="_blank"><em class="NIE-topBar-hot">倩女幽魂2</em></a><a href="http://x3.163.com" target="_blank">新大话西游3</a><a href="http://xdw.163.com" target="_blank">大话外传新篇</a><a href="http://zd.163.com" target="_blank"><em class="NIE-topBar-new">藏地传奇</em></a><a href="http://dtws2.163.com" target="_blank">大唐无双2</a><a href="http://ty.163.com" target="_blank"><em class="NIE-topBar-new">天谕</em></a><a href="http://jl.163.com" target="_blank">精灵传说</a><a href="http://lj.163.com" target="_blank"><em class="NIE-topBar-new">龙剑</em></a><a href="http://zh.163.com" target="_blank">斩魂</a><a href="http://www.warcraftchina.com" target="_blank">魔兽世界</a><a href="http://ff.163.com" target="_blank">新飞飞</a></td><td><b>竞技对战<i>3</i></b><a href="http://www.battlenet.com.cn" target="_blank">战网</a><a href="http://www.starcraft2.com.cn" target="_blank">星际争霸Ⅱ</a><a href="http://yxsg.163.com" target="_blank"><em class="NIE-topBar-hot">英雄三国</em></a><b>手游<i>1</i></b><a href="http://xym.163.com/" target="_blank">迷你西游</a><b>网页游戏<i>1</i></b><a href="http://zg.163.com" target="_blank">战国风云</a></td><td><b>休闲游戏<i>2</i></b><a href="http://www.hearthstone.com.cn/" target="_blank"><em class="NIE-topBar-new">炉石传说</em></a><a href="http://xc.163.com" target="_blank">游戏星城</a><b>射击游戏<i>2</i></b><a href="http://bl.163.com" target="_blank"><em class="NIE-topBar-new">爆裂天空</em></a><a href="http://wj.163.com" target="_blank"><em class="NIE-topBar-new">危机2015</em></a></td><td style="background:#000;"><b>游戏助手<i>8</i></b><a href="http://mkey.163.com" target="_blank">手机将军令</a><a href="http://ekey.163.com" target="_blank">将军令</a><a href="http://zhidao.163.com" target="_blank">游戏知道</a><a href="http://cbg.163.com" target="_blank">藏宝阁</a><a href="http://cc.163.com" target="_blank">网易CC</a><a href="http://gm.163.com" target="_blank">客服中心</a><a href="http://box.gm.163.com/?fromnietop" target="_blank">自助百宝箱</a><a href="http://uu.163.com" target="_blank">网易UU加速器</a><a class="NIE-topBar-btn" href="http://nie.163.com/" target="_blank">网易游戏</a></td></tr></table>\
+						  <table><tr><td style="width:225px;padding-left:30px;"><b>大型角色扮演游戏</b><a href="http://xyq.163.com" target="_blank"><em class="NIE-topBar-1st">梦幻西游2</em></a><a href="http://wh.163.com" target="_blank"><em class="NIE-topBar-hot">武魂</em></a><a href="http://xy2.163.com" target="_blank">新大话西游2</a><a href="http://tx3.163.com" target="_blank"><em class="NIE-topBar-hot">天下3</em></a><a href="http://xy3.163.com" target="_blank">大话西游3</a><a href="http://qn2.163.com" target="_blank"><em class="NIE-topBar-hot">倩女幽魂2</em></a><a href="http://x3.163.com" target="_blank">新大话西游3</a><a href="http://xdw.163.com" target="_blank">大话外传新篇</a><a href="http://zd.163.com" target="_blank"><em class="NIE-topBar-new">藏地传奇</em></a><a href="http://dtws2.163.com" target="_blank">大唐无双2</a><a href="http://ty.163.com" target="_blank"><em class="NIE-topBar-new">天谕</em></a><a href="http://jl.163.com" target="_blank">精灵传说</a><a href="http://lj.163.com" target="_blank"><em class="NIE-topBar-new">龙剑</em></a><a href="http://zh.163.com" target="_blank">斩魂</a><a href="http://www.warcraftchina.com" target="_blank">魔兽世界</a><a href="http://ff.163.com" target="_blank">新飞飞</a></td><td><b>竞技对战</b><a href="http://www.battlenet.com.cn" target="_blank">战网</a><a href="http://www.starcraft2.com.cn" target="_blank">星际争霸Ⅱ</a><a href="http://yxsg.163.com" target="_blank"><em class="NIE-topBar-hot">英雄三国</em></a><b>手游</b><a href="http://xym.163.com/" target="_blank">迷你西游</a><b>网页游戏</b><a href="http://zg.163.com" target="_blank">战国风云</a></td><td><b>休闲游戏</b><a href="http://www.hearthstone.com.cn/" target="_blank"><em class="NIE-topBar-new">炉石传说</em></a><a href="http://xc.163.com" target="_blank">游戏星城</a><b>射击游戏</b><a href="http://bl.163.com" target="_blank"><em class="NIE-topBar-new">爆裂天空</em></a><a href="http://wj.163.com" target="_blank"><em class="NIE-topBar-new">危机2015</em></a></td><td style="background:#ececec;"><b>游戏助手</b><a href="http://mkey.163.com" target="_blank">手机将军令</a><a href="http://ekey.163.com" target="_blank">将军令</a><a href="http://zhidao.163.com" target="_blank">游戏知道</a><a href="http://cbg.163.com" target="_blank">藏宝阁</a><a href="http://cc.163.com" target="_blank">网易CC</a><a href="http://gm.163.com" target="_blank">客服中心</a><a href="http://box.gm.163.com/?fromnietop" target="_blank">自助百宝箱</a><a href="http://uu.163.com" target="_blank">网易UU加速器</a><a class="NIE-topBar-btn" href="http://nie.163.com/" target="_blank">网易游戏</a></td></tr></table>\
 						</div>\
 					</div>';
 			//新闻
+            /* 取消囧囧有神栏目，改为大banner
 			if(/^(xyq|xy2|tx3|y3)$/i.test(productName)){
 				var js=document.createElement("script");
 				js.src="/news/jjys.js";
@@ -239,8 +268,64 @@
 							}
 				}
 				document.getElementsByTagName("head")[0].appendChild(js);				
-			}
+			} */
 		};	
 	new hover("NIE-topBar-menu","NIE-topBar-menu-hover");
 	finishPage=regPageDict=regProduct=ecardPlatform=regPage=regUrl=regProductID=null;
 })();
+
+
+//先在前面渲染出结构，再加入Banner。混乱蹩脚的实现，到时再重写。
+/*
+(function(){
+    var bannerThumb=nie.config.topBar.bannerThumb||'http://res.nie.netease.com/banner_thumb.jpg',
+        bannerImg=nie.config.topBar.bannerImg||'http://res.nie.netease.com/banner_img.jpg',
+        bannerLink=nie.config.topBar.bannerLink||'http://xyq.163.com';
+
+
+
+
+    var screenWidth=$(window).width();
+
+    var str="<div href='javascript:;' class='NIE-topBar-ad'><a><img src='images/s-banner-w.jpg'></a></div>"
+    $('#NIE-topBar-news').html(str);
+    if(screenWidth>1200){
+        $('#NIE-topBar').addClass('w1200');
+        $('#NIE-topBar').append('<div class="NIE-topBar-ad-big" style="width:100%;left:0;background:url(images/b-bg-w.jpg) repeat-x;"><a href="http://tx3.163.com/huodong/" target="_blank" ><img src="images/b-banner-w-b.jpg"></a></div>')
+    }else{
+        $('.NIE-topBar-main').append('<div class="NIE-topBar-ad-big"><a href="http://tx3.163.com/huodong/" target="_blank"><img src="images/b-banner-w.jpg"></a></div>')
+    }
+    $('#NIE-topBar-news,.NIE-topBar-ad-big').hover(function(){
+        $('.NIE-topBar-ad-big').stop().animate({
+            height:247
+        },200)
+        $('#NIE-topBar-news').css('opacity',0);
+
+
+    },function(){
+        $('.NIE-topBar-ad-big').stop().animate({
+            height:0
+        },200)
+        $('#NIE-topBar-news').css('opacity',1);
+    })
+
+    $(window).resize(function(){
+
+        var screenWidth=$(window).width();
+        if(screenWidth>1200){
+            $('#NIE-topBar').addClass('w1200');
+            $('.NIE-topBar-ad-big img').attr('src','images/b-banner-w-b.jpg');
+            $('.NIE-topBar-ad-big').css({
+                backgroundImage:'url(images/b-bg-w.jpg)'
+            })
+        }else{
+            $('#NIE-topBar').removeClass('w1200');
+            $('.NIE-topBar-ad-big img').attr('src','images/b-banner-w.jpg');
+            $('.NIE-topBar-ad-big').css({
+                backgroundImage:'none'
+            })
+        }
+
+    })
+}())
+    */
