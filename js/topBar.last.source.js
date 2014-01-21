@@ -193,24 +193,22 @@
 			.NIE-topBar-1st{background-position:right -274px;}\
 			.NIE-topBar-hot{background-position:right -150px;}\
 			.NIE-topBar-new{background-position:right -212px;}\
-			#NIE-topBar-menu.NIE-topBar-menu-hover{height:330px;opacity:.9;-webkit-transition:height .4s ease 0s;-o-transition:height .4s ease 0s;-moz-transition:height .4s ease 0s;transition:height .4s ease 0s;}\
+			#NIE-topBar-menu.NIE-topBar-menu-hover{height:340px;opacity:.9;-webkit-transition:height .4s ease 0s;-o-transition:height .4s ease 0s;-moz-transition:height .4s ease 0s;transition:height .4s ease 0s;}\
 			a.NIE-topBar-btn{width:103px !important;height:25px;margin:5px 0;display:inline-block;padding-left:0 !important;background-position:100% -338px;text-indent:15px;color:#fff !important;border:1px #090708 solid;border-left:0;border-top:0;}\
 			a.NIE-topBar-btn:hover{color:#FDD2D2 !important;}\
 		'+/*医生说要自适应宽屏啊！,改成白色之后重写样式*/'.NIE-topBar-ad{height:40px;left:50%;}\
 			.w1200{min-width:1200px!important;}\
 			.w1200 .NIE-topBar-main{width:1185px;}\
-			#NIE-topBar-news{width:auto!important;z-index:9;}\
+			#NIE-topBar-news{width:auto;z-index:9;height:54px;width:auto;border-color:#fbfbfb;background:none;}\
 			#NIE-topBar .NIE-topBar-menu-hover{z-index:8;}\
 			.NIE-topBar-ad-big{position: absolute;top: 0;left:0;z-index: 10;height:0;overflow:hidden;text-align:center;}\
 			#NIE-topBar-menu{z-index:7;}\
 			.NIE-topBar-mid{z-index:12;width: 250px;right:144px;width:536px;}\
 			.NIE-topBar-logo{position:relative;z-index:13!important;}\
-			#NIE-topBar{height:55px;}\
+			#NIE-topBar{height:55px;background:#fbfbfb;}\
 			.NIE-topBar-logo{margin-top:14px;}\
-			#NIE-topBar .NIE-topBar-mid a{line-height:55px;}\
 			#NIE-topBar-menu table{top:54px;background:#fbfbfb;border-top: 1px solid #ececec;}\
 			#NIE-topBar-menu span{background:none;color:#bc2e2e;}\
-			#NIE-topBar-news{height:54px;}\
 			#NIE-topBar-menu table td{border-color:#ececec;}\
 			#NIE-topBar-menu b{color:#bc2e2e;}\
 			#NIE-topBar a{color:#626262}\
@@ -221,9 +219,8 @@
 			#NIE-topBar-menu table *{font-size:12px;}\
 			#NIE-topBar-menu.NIE-topBar-menu-hover span{border-bottom:3px solid #bc2e2e;background-color: #F3F3F3;background-image: -webkit-linear-gradient(top, #F3F3F3 0px, #FEFEFE 52px);background-image:linear-gradient(top, #F3F3F3 0px, #FEFEFE 52px);}\
 			#NIE-topBar-menu span{height:26px;width:123px;padding-top:14px;transition:background ease-in-out .33s;z-index:20;}\
-			#NIE-topBar .NIE-topBar-mid a{line-height:52px;transition:background ease-in-out .33s;*line-height:55px;}\
+			#NIE-topBar .NIE-topBar-mid a{color:#333;line-height:52px;transition:background ease-in-out .33s;*line-height:55px;}\
 			#NIE-topBar .NIE-topBar-mid a:hover{color:#bc2e2e!important;border-bottom:3px solid #bc2e2e;background-color: #F3F3F3;background-image: -webkit-linear-gradient(top, #F3F3F3 0px, #FEFEFE 52px);background-image:linear-gradient(top, #F3F3F3 0px, #FEFEFE 52px);*border-bottom:none;}\
-			#NIE-topBar-menu.NIE-topBar-menu-hover{height:350px;}\
 		');
 		new function(){			
 			$("NIE-topBar").innerHTML='<div class="NIE-topBar-main">\
