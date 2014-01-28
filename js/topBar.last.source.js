@@ -202,7 +202,7 @@
 			#NIE-topBar-news{width:auto;z-index:9;height:54px;width:auto;border-color:#fbfbfb;background:none;}\
 			#NIE-topBar .NIE-topBar-menu-hover{z-index:8;}\
 			.NIE-topBar-ad-big{position: absolute;top: 0;left:0;z-index: 10;height:0;overflow:hidden;text-align:center;}\
-			#NIE-topBar-menu{z-index:7;hegiht:55px;}\
+			#NIE-topBar-menu{z-index:7;height:55px;}\
 			.NIE-topBar-mid{z-index:12;width: 250px;right:144px;width:536px;}\
 			.NIE-topBar-logo{position:relative;z-index:13!important;}\
 			#NIE-topBar{height:55px;background:#fbfbfb;}\
