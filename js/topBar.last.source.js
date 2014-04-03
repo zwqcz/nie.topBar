@@ -207,7 +207,7 @@
 			.NIE-topBar-logo{position:relative;z-index:13!important;}\
 			#NIE-topBar{height:55px;background:#fbfbfb;}\
 			.NIE-topBar-logo{margin-top:14px;}\
-			#NIE-topBar-menu table{top:54px;background:#fbfbfb;border-top: 1px solid #ececec;}\
+			#NIE-topBar-menu table{top:55px;background:#fbfbfb;border-top: 1px solid #ececec;}\
 			#NIE-topBar-menu span{background:none;color:#bc2e2e;}\
 			#NIE-topBar-menu table td{border-color:#ececec;}\
 			#NIE-topBar-menu b{color:#bc2e2e;}\
