@@ -169,16 +169,11 @@
 			#NIE-topBar ul,#NIE-topBar li{margin:0;padding:0;float:left;}\
 			.NIE-topBar-main{position:relative;z-index:9999;width:945px;margin:auto;}\
 			.NIE-topBar-logo{width:115px;height:28px;display:block;float:left;margin-top:6px;}\
-			#NIE-topBar-news{position:absolute;z-index:2;left:125px;width:290px;height:39px;padding-left:18px;color:#fff;background:#333;overflow:hidden;border:1px solid #333;border-top:0;-webkit-transition:height .3s ease 0s;-o-transition:height .3s ease 0s;-moz-transition:height .3s ease 0s;transition:height .3s ease 0s;}\
-			#NIE-topBar-news.NIE-topBar-news-hover{height:200px;padding-bottom:20px;background:#262626;opacity:.9;border-color:#1f1f1f;-webkit-transition:all .5s ease 0s;-o-transition:all .5s ease 0s;-moz-transition:all .5s ease 0s;transition:all .5s ease 0s;}\
-			.NIE-topBar-news-hover .NIE-topBar-arrIcon i,.NIE-topBar-menu-hover .NIE-topBar-arrIcon i{-ms-transform:rotate(180deg);-webkit-transform:rotate(180deg);-o-transform:rotate(180deg);-moz-transform:rotate(180deg);-webkit-transition:deg .3s ease 0s;-o-transition:deg .3s ease 0s;-moz-transition:deg .3s ease 0s;transition:deg .3s ease 0s;}\
-			#NIE-topBar-news span{position:relative;height:40px;line-height:40px;display:block;overflow:hidden;}\
-			#NIE-topBar-news span b{width:6em;float:left;display:inline-block;}\
-			#NIE-topBar-news span a{width:190px;height:40px;display:inline-block;overflow:hidden;}\
-			#NIE-topBar-news span .NIE-topBar-arrIcon{position:absolute;top:12px;_top:10px;}\
-			#NIE-topBar-news ul{position:relative;padding:5px 0;}\
-			#NIE-topBar-news ul a{width:265px;height:24px;display:block;overflow:hidden;}\
-			#NIE-topBar-news ul i{width:55px;padding-right:10px;float:left;font-style:normal;display:inline;text-align:right;}\
+			#NIE-topBar-news{position:absolute;z-index:13;width:420px;height:54px;left:125px;padding-left:18px;padding-top:5px;overflow:hidden;}\
+			#NIE-topBar-news.NIE-topBar-news-hover{height:200px;overflow:visible;border-color:#1f1f1f;}\
+			#NIE-topBar-news a{width:960px;display:block;height:0;overflow:hidden;}\
+			#NIE-topBar-news.NIE-topBar-news-hover .NIE-topBar-abc-s{visibility:hidden;}\
+			#NIE-topBar-news.NIE-topBar-news-hover a{position:absolute;z-index:2;left:-132px; top:55px;height:auto;}\
 			.NIE-topBar-mid{position:absolute;z-index:2;right:135px;width:385px;text-align:right;}\
 			#NIE-topBar .NIE-topBar-mid a{line-height:40px;padding:0 10px;color:#fff;display:inline-block;}\
 			#NIE-topBar .NIE-topBar-mid a:hover{color:#ca0b0b;}\
@@ -199,7 +194,7 @@
 		'+/*医生说要自适应宽屏啊！,改成白色之后重写样式*/'.NIE-topBar-ad{height:40px;left:50%;}\
 			.w1200{min-width:1200px!important;}\
 			.w1200 .NIE-topBar-main{width:1185px;}\
-			#NIE-topBar-news{width:auto;z-index:9;height:54px;width:auto;border-color:#fbfbfb;background:none;}\
+			#NIE-topBar-news{height:54px;}\
 			#NIE-topBar .NIE-topBar-menu-hover{z-index:8;}\
 			.NIE-topBar-ad-big{position: absolute;top: 0;left:0;z-index: 10;height:0;overflow:hidden;text-align:center;}\
 			#NIE-topBar-menu{z-index:7;height:55px;}\
@@ -227,6 +222,10 @@
 			$("NIE-topBar").innerHTML='<div class="NIE-topBar-main">\
 						<a class="NIE-topBar-logo" href="http://nie.163.com/" target="_blank"></a>\
 						<div id="NIE-topBar-news">\
+							<span>\
+								<img class="NIE-topBar-abc-s" src="http://res.nie.netease.com/comm/nie.topBar/abc/140421.420x45.jpg">\
+								<a href="http://xym.163.com/fab/?from=nietop" target="_blank"><img src="http://res.nie.netease.com/comm/nie.topBar/abc/140421.960x200.jpg"></a>\
+							</span>\
 						</div>\
 						<div class="NIE-topBar-mid">\
 							<a id="global_gp_reg" href="'+regPage+'" target="_blank">注册帐号</a>\
@@ -269,6 +268,7 @@
 			} */
 		};	
 	new hover("NIE-topBar-menu","NIE-topBar-menu-hover");
+	new hover("NIE-topBar-news","NIE-topBar-news-hover");
 	finishPage=regPageDict=regProduct=ecardPlatform=regPage=regUrl=regProductID=null;
 })();
 
