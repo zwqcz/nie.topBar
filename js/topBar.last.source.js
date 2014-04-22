@@ -169,7 +169,7 @@
 			#NIE-topBar ul,#NIE-topBar li{margin:0;padding:0;float:left;}\
 			.NIE-topBar-main{position:relative;z-index:9999;width:945px;margin:auto;}\
 			.NIE-topBar-logo{width:115px;height:28px;display:block;float:left;margin-top:6px;}\
-			#NIE-topBar-news{position:absolute;z-index:13;width:420px;height:54px;left:125px;padding-left:18px;padding-top:5px;overflow:hidden;}\
+			#NIE-topBar-news{position:absolute;z-index:13;width:420px;height:54px;left:125px;padding-left:18px;padding-top:0px;overflow:hidden;}\
 			#NIE-topBar-news.NIE-topBar-news-hover{height:200px;overflow:visible;border-color:#1f1f1f;}\
 			#NIE-topBar-news a{width:960px;display:block;height:0;overflow:hidden;}\
 			#NIE-topBar-news.NIE-topBar-news-hover .NIE-topBar-abc-s{visibility:hidden;}\
