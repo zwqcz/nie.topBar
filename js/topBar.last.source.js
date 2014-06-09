@@ -12,7 +12,7 @@
 				style=document.createElement("style");
 				style.type = "text/css";   		
 				style.textContent = styleContent;  
-			}	
+			}
 			try{
 				document.getElementsByTagName("head")[0].appendChild(style);
 			}
@@ -39,6 +39,82 @@
 				_timer=setTimeout(function(){
 					if(!_overStatus) _self.className="";
 				},_outTime);
+			}
+		},
+		cookies = function(name, value, options) {
+			if (typeof value != 'undefined') { // name and value given, set cookie
+				options = options || {};
+				if (value === null) {
+					value = '';
+					options.expires = -1;
+				}
+				var expires = '';
+				if (options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {
+					var date;
+					if (typeof options.expires == 'number') {
+						date = new Date();
+						date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));
+					} else {
+						date = options.expires;
+					}
+					expires = '; expires=' + date.toUTCString(); // use expires attribute, max-age is not supported by IE
+				}
+				// CAUTION: Needed to parenthesize options.path and options.domain
+				// in the following expressions, otherwise they evaluate to undefined
+				// in the packed version for some reason...
+				var path = options.path ? '; path=' + (options.path) : '';
+				var domain = options.domain ? '; domain=' + (options.domain) : '';
+				var secure = options.secure ? '; secure' : '';
+				document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');
+			} else { // only name given, get cookie
+				var cookieValue = null;
+				if (document.cookie && document.cookie != '') {
+					var cookies = document.cookie.split(';');
+					for (var i = 0; i < cookies.length; i++) {
+						var cookie = jQuery.trim(cookies[i]);
+						// Does this cookie string begin with the name we want?
+						if (cookie.substring(0, name.length + 1) == (name + '=')) {
+							cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+							break;
+						}
+					}
+				}
+				return cookieValue;
+			}
+		},
+		hover2=function(id,hoverClassName,closes){
+			var _self=$(id),
+				_close=$(closes),
+				_hoverClassName=hoverClassName,
+				_overStatus=false,
+				_overTime=180,
+				_outTime=350,
+				_timer=null;
+			if(cookies('topbarnewsshow') != 1){
+				_self.className=_hoverClassName
+				_timer=setTimeout(function(){					
+					_self.className="";
+				},5000);	
+			}
+			cookies('topbarnewsshow','1',{ expires:1});
+			_self.onmouseover=function(){
+				_overStatus=true;
+				clearTimeout(_timer);
+				_timer=setTimeout(function(){					
+					if(_overStatus) _self.className=_hoverClassName;
+				},_overTime);
+			}
+			_self.onmouseout=function(){
+				_overStatus=false;
+				clearTimeout(_timer);
+				_timer=setTimeout(function(){
+					if(!_overStatus) _self.className="";
+				},_outTime);
+			}
+			_close.onclick=function(){
+				_overStatus=false;
+				clearTimeout(_timer);
+				_self.className=""
 			}
 		},
 		//注册完成返回的页面
@@ -168,17 +244,14 @@
 			#NIE-topBar a:hover{color:#fff;}\
 			#NIE-topBar ul,#NIE-topBar li{margin:0;padding:0;float:left;}\
 			.NIE-topBar-main{position:relative;z-index:9999;width:945px;margin:auto;}\
-			.NIE-topBar-logo{width:115px;height:28px;display:block;float:left;margin-top:6px;}\
-			#NIE-topBar-news{position:absolute;z-index:2;left:125px;width:290px;height:39px;padding-left:18px;color:#fff;background:#333;overflow:hidden;border:1px solid #333;border-top:0;-webkit-transition:height .3s ease 0s;-o-transition:height .3s ease 0s;-moz-transition:height .3s ease 0s;transition:height .3s ease 0s;}\
-			#NIE-topBar-news.NIE-topBar-news-hover{height:200px;padding-bottom:20px;background:#262626;opacity:.9;border-color:#1f1f1f;-webkit-transition:all .5s ease 0s;-o-transition:all .5s ease 0s;-moz-transition:all .5s ease 0s;transition:all .5s ease 0s;}\
-			.NIE-topBar-news-hover .NIE-topBar-arrIcon i,.NIE-topBar-menu-hover .NIE-topBar-arrIcon i{-ms-transform:rotate(180deg);-webkit-transform:rotate(180deg);-o-transform:rotate(180deg);-moz-transform:rotate(180deg);-webkit-transition:deg .3s ease 0s;-o-transition:deg .3s ease 0s;-moz-transition:deg .3s ease 0s;transition:deg .3s ease 0s;}\
-			#NIE-topBar-news span{position:relative;height:40px;line-height:40px;display:block;overflow:hidden;}\
-			#NIE-topBar-news span b{width:6em;float:left;display:inline-block;}\
-			#NIE-topBar-news span a{width:190px;height:40px;display:inline-block;overflow:hidden;}\
-			#NIE-topBar-news span .NIE-topBar-arrIcon{position:absolute;top:12px;_top:10px;}\
-			#NIE-topBar-news ul{position:relative;padding:5px 0;}\
-			#NIE-topBar-news ul a{width:265px;height:24px;display:block;overflow:hidden;}\
-			#NIE-topBar-news ul i{width:55px;padding-right:10px;float:left;font-style:normal;display:inline;text-align:right;}\
+			.NIE-topBar-logo{width:139px;height:39px;display:block;float:left;margin-top:6px;background:url(http://res.nie.netease.com/comm/nie.topBar/images/logo.png) no-repeat;}\
+			#NIE-topBar-news{position:absolute;z-index:13;width:420px;height:54px;left:125px;padding-left:18px;padding-top:0px;overflow:hidden;}\
+			#NIE-topBar-news.NIE-topBar-news-hover{height:250px;overflow:visible;border-color:#1f1f1f;}\
+			#NIE-topBar-news a{width:960px;display:block;height:0;overflow:hidden;z-index:1;-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);-o-box-shadow:0 2px 4px rgba(0,0,0,0.2);-moz-box-shadow:0 2px 4px rgba(0,0,0,0.2);box-shadow:0 2px 4px rgba(0,0,0,0.2)}\
+			#NIE-topBar-news-close{position:absolute;top:63px;right:-380px;display:block;width:32px;height:32px;overflow:hidden;background:url(http://res.nie.netease.com/comm/nie.topBar/images/sprite-w.png) no-repeat -9999px -9999px;text-indent:-9999px;z-index:2;}\
+			#NIE-topBar-news.NIE-topBar-news-hover .NIE-topBar-abc-s{visibility:hidden;}\
+			#NIE-topBar-news.NIE-topBar-news-hover a{position:absolute;z-index:2;left:-132px; top:55px;height:auto;}\
+			#NIE-topBar-news.NIE-topBar-news-hover a img{display:block}\
 			.NIE-topBar-mid{position:absolute;z-index:2;right:135px;width:385px;text-align:right;}\
 			#NIE-topBar .NIE-topBar-mid a{line-height:40px;padding:0 10px;color:#fff;display:inline-block;}\
 			#NIE-topBar .NIE-topBar-mid a:hover{color:#ca0b0b;}\
@@ -199,14 +272,14 @@
 		'+/*医生说要自适应宽屏啊！,改成白色之后重写样式*/'.NIE-topBar-ad{height:40px;left:50%;}\
 			.w1200{min-width:1200px!important;}\
 			.w1200 .NIE-topBar-main{width:1185px;}\
-			#NIE-topBar-news{width:auto;z-index:9;height:54px;width:auto;border-color:#fbfbfb;background:none;}\
+			#NIE-topBar-news{height:54px;}\
 			#NIE-topBar .NIE-topBar-menu-hover{z-index:8;}\
 			.NIE-topBar-ad-big{position: absolute;top: 0;left:0;z-index: 10;height:0;overflow:hidden;text-align:center;}\
 			#NIE-topBar-menu{z-index:7;height:55px;}\
 			.NIE-topBar-mid{z-index:12;width: 250px;right:144px;width:536px;}\
 			.NIE-topBar-logo{position:relative;z-index:13!important;}\
 			#NIE-topBar{height:55px;background:#fbfbfb;}\
-			.NIE-topBar-logo{margin-top:14px;}\
+			.NIE-topBar-logo{margin-top:8px;}\
 			#NIE-topBar-menu table{top:55px;background:#fbfbfb;border-top: 1px solid #ececec;}\
 			#NIE-topBar-menu span{background:none;color:#bc2e2e;}\
 			#NIE-topBar-menu table td{border-color:#ececec;}\
@@ -227,6 +300,11 @@
 			$("NIE-topBar").innerHTML='<div class="NIE-topBar-main">\
 						<a class="NIE-topBar-logo" href="http://nie.163.com/" target="_blank"></a>\
 						<div id="NIE-topBar-news">\
+							<span>\
+								<img class="NIE-topBar-abc-s" src="http://res.nie.netease.com/comm/nie.topBar/abc/140527.420x45.jpg">\
+								<a href="http://gad.netease.com/gad/access?project_id=868941&s=5EzAzwL3ggL1oKC3%2ByPtQdAAB3U%3D&code_type=1" target="_blank"><img src="http://res.nie.netease.com/comm/nie.topBar/abc/140527.960x250.jpg"></a>\
+								<span id="NIE-topBar-news-close">关闭</span>\
+							</span>\
 						</div>\
 						<div class="NIE-topBar-mid">\
 							<a id="global_gp_reg" href="'+regPage+'" target="_blank">注册帐号</a>\
@@ -235,7 +313,7 @@
 						</div>\
 						<div id="NIE-topBar-menu">\
 							<span>网易游戏全目录 <em class="NIE-topBar-arrIcon"><i></i></em></span>\
-						  <table><tr><td style="width:225px;padding-left:30px;"><b>大型角色扮演游戏</b><a href="http://xyq.163.com?from=nietop" target="_blank"><em class="NIE-topBar-1st">梦幻西游2</em></a><a href="http://wh.163.com?from=nietop" target="_blank"><em class="NIE-topBar-hot">武魂</em></a><a href="http://xy2.163.com?from=nietop" target="_blank">新大话西游2</a><a href="http://tx3.163.com?from=nietop" target="_blank"><em class="NIE-topBar-hot">天下3</em></a><a href="http://xy3.163.com?from=nietop" target="_blank">新大话3(经典版)</a><a href="http://qn2.163.com?from=nietop" target="_blank"><em class="NIE-topBar-hot">倩女幽魂2</em></a><a href="http://x3.163.com?from=nietop" target="_blank">新大话3(免费版)</a><a href="http://xdw.163.com?from=nietop" target="_blank">大话外传新篇</a><a href="http://zd.163.com?from=nietop" target="_blank"><em class="NIE-topBar-new">藏地传奇</em></a><a href="http://dtws2.163.com?from=nietop" target="_blank">大唐无双2</a><a href="http://ty.163.com?from=nietop" target="_blank"><em class="NIE-topBar-new">天谕</em></a><a href="http://jl.163.com?from=nietop" target="_blank">精灵传说</a><a href="http://lj.163.com?from=nietop" target="_blank"><em class="NIE-topBar-new">龙剑</em></a><a href="http://zh.163.com?from=nietop" target="_blank">斩魂</a><a href="http://www.warcraftchina.com?from=nietop" target="_blank">魔兽世界</a><a href="http://ff.163.com?from=nietop" target="_blank">新飞飞</a></td><td><b>竞技对战</b><a href="http://www.battlenet.com.cn?from=nietop" target="_blank">战网</a><a href="http://www.starcraft2.com.cn?from=nietop" target="_blank">星际争霸Ⅱ</a><a href="http://yxsg.163.com?from=nietop" target="_blank"><em class="NIE-topBar-hot">英雄三国</em></a><b>手游</b><a href="http://xym.163.com/?from=nietop" target="_blank">迷你西游</a><a href="http://too.163.com/?from=nietop" target="_blank"><em class="NIE-topBar-new">塔防骑士团</em></a><a href="http://kxd.163.com/?from=nietop" target="_blank"><em class="NIE-topBar-new">开心岛</em></a><b>网页游戏</b><a href="http://zg.163.com?from=nietop" target="_blank">战国风云</a></td><td><b>休闲游戏</b><a href="http://www.hearthstone.com.cn/?from=nietop" target="_blank"><em class="NIE-topBar-new">炉石传说</em></a><a href="http://xc.163.com?from=nietop" target="_blank">游戏星城</a><b>射击游戏</b><a href="http://bl.163.com?from=nietop" target="_blank"><em class="NIE-topBar-new">爆裂天空</em></a><a href="http://wj.163.com?from=nietop" target="_blank"><em class="NIE-topBar-new">危机2015</em></a></td><td style="background:#ececec;"><b>游戏助手</b><a href="http://mkey.163.com?from=nietop" target="_blank">手机将军令</a><a href="http://ekey.163.com?from=nietop" target="_blank">将军令</a><a href="http://zhidao.163.com?from=nietop" target="_blank">游戏知道</a><a href="http://cbg.163.com?from=nietop" target="_blank">藏宝阁</a><a href="http://cc.163.com?from=nietop" target="_blank">网易CC</a><a href="http://gm.163.com?from=nietop" target="_blank">客服中心</a><a href="http://box.gm.163.com/?fromnietop" target="_blank">自助百宝箱</a><a href="http://uu.163.com?from=nietop" target="_blank">网易UU加速器</a><a class="NIE-topBar-btn" href="http://nie.163.com/?from=nietop" target="_blank">网易游戏</a></td></tr></table>\
+						  <table><tr><td style="width:225px;padding-left:30px;"><b>大型角色扮演游戏</b><a href="http://xyq.163.com?from=nietop" target="_blank"><em class="NIE-topBar-1st">梦幻西游2</em></a><a href="http://wh.163.com?from=nietop" target="_blank">武魂</a><a href="http://xy2.163.com?from=nietop" target="_blank">新大话西游2</a><a href="http://tx3.163.com?from=nietop" target="_blank"><em class="NIE-topBar-hot">天下3</em></a><a href="http://xy3.163.com?from=nietop" target="_blank">新大话3(经典版)</a><a href="http://qn2.163.com?from=nietop" target="_blank">倩女幽魂2</a><a href="http://x3.163.com?from=nietop" target="_blank">新大话3(免费版)</a><a href="http://xdw.163.com?from=nietop" target="_blank">大话外传新篇</a><a href="http://zd.163.com?from=nietop" target="_blank"><em class="NIE-topBar-new">藏地传奇</em></a><a href="http://dtws2.163.com?from=nietop" target="_blank">大唐无双2</a><a href="http://ty.163.com?from=nietop" target="_blank"><em class="NIE-topBar-new">天谕</em></a><a href="http://jl.163.com?from=nietop" target="_blank">精灵传说</a><a href="http://lj.163.com?from=nietop" target="_blank"><em class="NIE-topBar-new">龙剑</em></a><a href="http://zh.163.com?from=nietop" target="_blank">斩魂</a><a href="http://www.warcraftchina.com?from=nietop" target="_blank">魔兽世界</a><a href="http://ff.163.com?from=nietop" target="_blank">新飞飞</a></td><td><b>手游</b><a href="http://xym.163.com/?from=nietop" target="_blank">迷你西游</a><a href="http://too.163.com/?from=nietop" target="_blank"><em class="NIE-topBar-new">塔防骑士团</em></a><a href="http://kxd.163.com/?from=nietop" target="_blank"><em class="NIE-topBar-new">开心岛</em></a><a href="http://rz.163.com/?from=nietop" target="_blank"><em class="NIE-topBar-new">忍者必须死2</em></a><a href="http://yzr.163.com/?from=nietop" target="_blank"><em class="NIE-topBar-new">雨血：影之刃</em></a><a href="http://wscs.163.com/?from=nietop" target="_blank"><em class="NIE-topBar-new">实况俱乐部</em></a><a href="http://em.163.com/?from=nietop" target="_blank"><em class="NIE-topBar-new">恶魔不要啊</em></a><a href="http://xxd.163.com/?from=nietop" target="_blank"><em class="NIE-topBar-new">一起消消毒</em></a><b>网页游戏</b><a href="http://zg.163.com?from=nietop" target="_blank">战国风云</a></td><td><b>竞技对战</b><a href="http://www.battlenet.com.cn?from=nietop" target="_blank">战网</a><a href="http://www.starcraft2.com.cn?from=nietop" target="_blank">星际争霸Ⅱ</a><a href="http://y3.163.com?from=nietop" target="_blank"><em class="NIE-topBar-hot">英雄三国</em></a><b>休闲游戏</b><a href="http://www.hearthstone.com.cn/?from=nietop" target="_blank"><em class="NIE-topBar-new">炉石传说</em></a><a href="http://xc.163.com?from=nietop" target="_blank">游戏星城</a><b>射击游戏</b><a href="http://bl.163.com?from=nietop" target="_blank"><em class="NIE-topBar-new">爆裂天空</em></a><a href="http://wj.163.com?from=nietop" target="_blank"><em class="NIE-topBar-new">危机2015</em></a></td><td style="background:#ececec;"><b>游戏助手</b><a href="http://mkey.163.com?from=nietop" target="_blank">手机将军令</a><a href="http://ekey.163.com?from=nietop" target="_blank">将军令</a><a href="http://zhidao.163.com?from=nietop" target="_blank">游戏知道</a><a href="http://cbg.163.com?from=nietop" target="_blank">藏宝阁</a><a href="http://cc.163.com?from=nietop" target="_blank">网易CC</a><a href="http://gm.163.com?from=nietop" target="_blank">客服中心</a><a href="http://box.gm.163.com/?fromnietop" target="_blank">自助百宝箱</a><a href="http://uu.163.com?from=nietop" target="_blank">网易UU加速器</a><a class="NIE-topBar-btn" href="http://nie.163.com/?from=nietop" target="_blank">网易游戏</a></td></tr></table>\
 						</div>\
 					</div>';
 			//新闻
@@ -269,6 +347,7 @@
 			} */
 		};	
 	new hover("NIE-topBar-menu","NIE-topBar-menu-hover");
+	new hover2("NIE-topBar-news","NIE-topBar-news-hover","NIE-topBar-news-close");
 	finishPage=regPageDict=regProduct=ecardPlatform=regPage=regUrl=regProductID=null;
 })();
 
